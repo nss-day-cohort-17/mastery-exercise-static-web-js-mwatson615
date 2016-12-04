@@ -21,18 +21,18 @@ var height = document.getElementById("number")
 var treeChars = {"foliage" : "*", "height" : 5}
 
 function makeTree() {
+	/*
 	if (treeChars.foliage === null || treeChars.height === null) {
 		alert("Both fields must have a value")
 	}
+	*/
 	var treeLetter = treeChars.foliage;
 	var treeNum = treeChars.height;
 	var treeSpaces = " "
-	for (i = 1; i <= treeNum; i++) {
-		treeLetter = i + 2;
-		treeSpaces = treeNum - 1;
-		treeNum.repeat(i + 2);
-		console.log(treeSpaces + treeLetter.repeat(i + 2));
+	for (i = 1; i <= treeNum+i; i++) {
+		console.log(treeSpaces.repeat(--treeNum) + treeLetter.repeat(i++));
 	}
+
 }
 
-makeTree()
+makeTree();
