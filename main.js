@@ -8,7 +8,7 @@ height.addEventListener("keyup", makeTree());
 
 
 
-var treeChars = {"foliage" : foliage , "height" : height}
+var treeChars = {"foliage" : "*" , "height" : 5}
 
 var treeLetter = treeChars.foliage;
 var treeNum = treeChars.height;
@@ -16,16 +16,15 @@ var treeSpaces = " "
 var treeWidth = 0;
 
 function makeTree(treeChars) {
-	if (KeyboardEvent.key === 13 || (foliage != null && height != null)) {
+	if (KeyboardEvent.key !== 13 || (foliage == null && height == null)) {
+		alert("Both fields must have a value");
+	} else {
 		for (i = 1; i <= treeNum; i+1) {
-			if (treeNum < treeNum+i) {
 			--treeNum;
 			treeWidth++;
 			console.log(treeSpaces.repeat(treeNum) + treeLetter.repeat(treeWidth++));
-	} else {
-		alert("Both fields must have a value");
+	}
 	}
 }
-}
-}
+
 makeTree();
