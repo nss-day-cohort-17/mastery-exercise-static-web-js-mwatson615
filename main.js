@@ -1,7 +1,3 @@
-console.log("HI!")
-
-
-
 var foliage = document.getElementById("letter").value;
 var height = document.getElementById("number").value;
 var addButton = document.getElementById("treeButton");
