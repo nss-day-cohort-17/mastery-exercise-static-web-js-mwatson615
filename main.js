@@ -1,31 +1,39 @@
 
-var foliage = document.getElementById("letter").value;
-var height = document.getElementById("number").value;
+
+var foliageInput = document.getElementById("letter");
+var heightInput = document.getElementById("number");
 var addButton = document.getElementById("treeButton");
 
-addButton.addEventListener("click", makeTree);
-foliage.addEventListener("keyup", makeTree);
-height.addEventListener("keyup", makeTree);
+addButton.addEventListener("click", other);
+// foliage.addEventListener("keyup", makeTree);
+// height.addEventListener("keyup", makeTree);
 
 
 
-var treeChars = {"foliage" : foliage , "height" : height}
+var treeChars = {"foliage" : "" , "height" : ""}
 
-var treeLetter = treeChars.foliage;
-var treeNum = treeChars.height;
 var treeSpaces = " "
 var treeWidth = 0;
 
-function makeTree() {
-	for (i = 1; i <= treeNum; i+1) {
-			--treeNum;
-			treeWidth++;
-			console.log(treeSpaces.repeat(treeNum) + treeLetter.repeat(treeWidth++));
-	}
-	if (foliage == null || height == null) {
+
+function other() {
+	treeChars.foliage = foliageInput.value;
+	treeChars.height = heightInput.value;
+	
+	if (treeChars.foliage === "" || treeChars.height === "") {
 		alert("Both fields must have a value");
 	}
+	makeTree(treeChars);
+}
+
+function makeTree(a) {
+
+	for (i = 1; i <= a.height; i+1) {
+			--a.height;
+			treeWidth++;
+			console.log(treeSpaces.repeat(a.height) + a.foliage.repeat(treeWidth++));
+		}
 }
 //KeyboardEvent.key !== 13
 
-makeTree();
+makeTree(treeChars);
